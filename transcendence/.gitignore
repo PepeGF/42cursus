@@ -1,0 +1,23 @@
+# Backend
+be/venv/
+be/config/__pycache__/
+be/venv/
+be/.cache/
+./my_script
+
+# Frontend
+fe/node_modules/
+fe/package-lock.json
+fe/.npm/
+fe/.ash*
+
+
+# CLI
+cli/src/__pycache__/
+cli/src/badapple/frames/
+cli/src/badapple/__pycache__/
+
+.env
+.apple
+
+__pycache__/

@@ -1,0 +1,163 @@
+<header class="text-white text-center py-1 mt-0"></header>
+<h1
+  class="secondary-title-color position-absolute top-0 start-50 translate-middle-x mt-8"
+  data-translationKey="register"
+>
+  Register
+</h1>
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="min-height: 100vh"
+>
+  <div class="container mt-5" style="width: 80vw">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="card border-0">
+          <div class="card-body bs-primary">
+            <form id="registerForm" class="needs-validation" novalidate>
+              <div class="form-group mb-3">
+                <label
+                  class="form-secondary-title-color fs-3"
+                  data-translationKey="username"
+                  for="username"
+                  >Username</label
+                >
+                <input
+                  class="form-control form-control-lg bs-secondary"
+                  id="username"
+                  type="text"
+                  required
+                />
+                <div class="invalid-feedback">Username is required</div>
+              </div>
+              <div class="form-group mb-3">
+                <label
+                  class="form-secondary-title-color fs-3"
+                  data-translationKey="password"
+                  for="password"
+                >
+                  Password
+                </label>
+
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-lg bs-secondary"
+                    id="password"
+                    type="password"
+                    required
+                  />
+                  <button
+                    class="btn text-white bg-transparent border-0 position-absolute end-0 top-50 translate-middle-y"
+                    type="button"
+                    id="togglePassword"
+                    aria-label="Toggle password visibility"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  <div class="invalid-feedback">Password is required</div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label
+                  class="form-secondary-title-color fs-3"
+                  data-translationKey="password-confirmation"
+                  for="password-confirmation"
+                  >Confirm password</label
+                >
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-lg bs-secondary"
+                    id="password-confirmation"
+                    type="password"
+                    required
+                  />
+                  <button
+                    class="btn text-white bg-transparent border-0 position-absolute end-0 top-50 translate-middle-y"
+                    type="button"
+                    id="togglePasswordConfirmation"
+                    aria-label="Toggle password confirmation visibility"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  <div class="invalid-feedback">
+                    Password confirmation is required
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center gap-2">
+                <a class="spa-link flex-grow-1" href="/">
+                  <button
+                    class="btn cancel-button w-100 bs-primary border-primary-color"
+                    data-translationKey="cancel"
+                    style="border-radius: 10px; height: 2.8rem"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                </a>
+                <button
+                  id="register-button"
+                  class="btn login-button flex-grow-1"
+                  data-translationKey="register"
+                  style="border-radius: 10px; height: 2.8rem"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  data-translationKey="privacy_policy"
+  id="privacy-banner"
+  style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+  "
+>
+  <span>
+    <span data-translationKey="privacy-info">
+      Usamos tus datos según nuestra
+    </span>
+    <a
+      class="spa-link"
+      href="/auth/privacy"
+      style="color: #ffd700; text-decoration: underline"
+      data-translationKey="privacy-policy-link"
+    >
+      Política de Privacidad
+    </a>
+  </span>
+  <button
+    data-translationKey="accept"
+    id="accept-privacy"
+    style="
+      background-color: #ffd700;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 15px;
+    "
+  >
+    x
+  </button>
+</div>

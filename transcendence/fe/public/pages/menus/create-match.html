@@ -1,0 +1,44 @@
+<div class="bs-primary d-flex justify-content-center align-items-center vh-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <button
+          id="local-match-btn"
+          class="btn button-text-styles button-text-size mb-3 w-100"
+          data-translationKey="local"
+        >
+          Local
+        </button>
+        <button
+          id="multiplayer-btn"
+          class="btn button-text-styles button-text-size mb-3 w-100"
+          data-translationKey="multiplayer"
+        >
+          Multiplayer
+        </button>
+        <a class="spa-link" href="/tournament-settings" style="flex: 1">
+          <button
+            id="tournament-btn"
+            class="btn button-text-styles button-text-size mb-3 w-100"
+            data-translationKey="tournament"
+          >
+            Tournament
+          </button>
+        </a>
+
+        <div id="queue-status" class="mt-4" style="display: none">
+          <p class="profile-title" data-translationKey="queue">
+            In queue for a match. Waiting for another player...
+          </p>
+          <button
+            id="cancel-queue-btn"
+            class="btn btn-danger w-100"
+            data-translationKey="cancel"
+          >
+            Cancel Queue
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

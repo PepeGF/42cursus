@@ -1,0 +1,126 @@
+<div class="container-fluid mt-8">
+  <div class="text-center ">
+    <h2 id="tournament-name" class="tournament-title">Tournament Name</h2>
+    <h5 id="join-code" class="text-muted tournament-title">Join Code: XXXX</h5>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-12 mb-3 d-flex justify-content-center gap-2">
+      <button
+        id="leaveTournamentButton"
+        class="btn cancel-button bs-primary border-primary-color"
+        data-translationKey="leave-tournament"
+      >
+        Leave Tournament
+      </button>
+      <button id="start-tournament-btn" class="btn btn-success" disabled
+        data-translationKey="start-tournament"
+      >
+        Start Tournament
+      </button>
+      <button
+        id="next-round-btn"
+        class="btn btn-primary"
+        data-translationKey="next-round"
+        disabled
+      >
+        Next Round
+      </button>
+    </div>
+    
+
+    <!-- Semifinal -->
+    <div class="col-12 mb-4">
+      <h5 class="mb-2 tournament-title"
+        data-translationKey="semifinal"
+      >Semifinal</h5>
+      <div class="scroll-container">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="match-result">
+              <div class="player-info">
+                <img id="semi1-p1-img" class="player-img rounded-circle" />
+                <span id="semi1-p1-name"></span>
+              </div>
+              <span class="text-warning semi-player1">0</span>
+              <span>VS</span>
+              <span class="text-warning semi-player2">0</span>
+              <div class="player-info">
+                <img id="semi1-p2-img" class="player-img rounded-circle" />
+                <span id="semi1-p2-name"></span>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="match-result">
+              <div class="player-info">
+                <img id="semi2-p1-img" class="player-img rounded-circle" />
+                <span id="semi2-p1-name"></span>
+              </div>
+              <span class="text-warning semi-player3">0</span>
+              <span>VS</span>
+              <span class="text-warning semi-player4">0</span>
+              <div class="player-info">
+                <img id="semi2-p2-img" class="player-img rounded-circle" />
+                <span id="semi2-p2-name"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-12 mb-2">
+      <h5 class="mb-2 tournament-title"
+        data-translationKey="final"
+      >Final</h5>
+      <div class="scroll-container">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="match-result">
+              <div class="player-info-final">
+                <img id="final-p1-img" class="player-img rounded-circle" />
+                <span id="final-p1-name"></span>
+              </div>
+              <span class="text-warning final-player1">0</span>
+              <span>VS</span>
+              <span class="text-warning final-player2">0</span>
+              <div class="player-info-final">
+                <img id="final-p2-img" class="player-img rounded-circle" />
+                <span id="final-p2-name"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="col-12 mb-5">
+      <h5 class="mb-4 tournament-title"
+        data-translationKey="winner"
+      >Winner</h5>
+      <div class="scroll-container">
+        <div class="final-winner">
+          <div
+            class="card bg-dark text-white border border-white border-1 winner-container"
+          >
+            <div class="card-body text-center p-1">
+              <p class="fw-bold text-warning fs-6 mb-1">👑</p>
+              <img
+                id="winner-avatar"
+                src=""
+                class="player-img-winner rounded-circle mb-1"
+                style="width: 50px; height: 50px;"
+              />
+              <p id="winner-name" class="fw-bold text-warning fs-3"
+                data-translationKey="wait-winner"
+                >Waiting for winner...</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

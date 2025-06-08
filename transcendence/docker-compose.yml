@@ -1,0 +1,116 @@
+services:
+  caddy:
+    container_name: caddy
+    build: ./deployment
+    ports:
+      - 8443:443 # MAIN PORT TO ACCESS TO FRONTEND AND EVERYTHING
+    volumes:
+      - ./deployment:/etc/caddy/
+      - be_media:/app/media
+    restart: always
+    depends_on:
+      - be
+      - fe
+      - prometheus
+      - grafana
+    networks:
+      - transcendence_network
+
+  be:
+    container_name: be
+    build: ./be
+    volumes:
+      - ./be:/app
+      - be_media:/app/media
+    env_file:
+      - ${TRANSCENDENCE_ENV_FILE:-.env}
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - transcendence_network
+
+  db:
+    container_name: db
+    image: postgres
+    env_file:
+      - ${TRANSCENDENCE_ENV_FILE:-.env}
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - transcendence_network
+
+  fe:
+    container_name: fe
+    build: ./fe
+    volumes:
+      - ./fe:/app
+      - /app/node_modules
+    networks:
+      - transcendence_network
+
+  prometheus:
+    container_name: prom
+    build: ./monitoring
+    user: prometheus
+    command:
+    - '--web.external-url=https://${OAUTH42_HOSTNAME}/prometheus/'
+    - '--web.route-prefix=/'
+    - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+    depends_on:
+      - be
+    volumes:
+      - prometheus_data:/prometheus
+    networks:
+      - transcendence_network
+
+  grafana:
+    container_name: grf
+    build: ./monitoring/grafana-config
+    user: grafana
+    env_file:
+      - ${TRANSCENDENCE_ENV_FILE:-.env}
+    environment:
+    - GF_SERVER_HTTP_PORT=3333
+    - GF_SERVER_DOMAIN=${OAUTH42_HOSTNAME}
+    - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/grafana
+    - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    restart: always
+    depends_on:
+      - prometheus
+    networks:
+      - transcendence_network
+
+  postgres_exporter:
+    container_name: pg_exporter
+    image: prometheuscommunity/postgres-exporter
+    env_file:
+      - ${TRANSCENDENCE_ENV_FILE:-.env}
+    command: '--no-collector.stat_bgwriter'
+    restart: always
+    depends_on:
+      prometheus:
+        condition: service_started
+    networks:
+      - transcendence_network
+
+  blackbox_exporter:
+    container_name: blackbox
+    build: ./monitoring/blackbox
+    restart: always
+    env_file:
+      - ${TRANSCENDENCE_ENV_FILE:-.env}
+    networks:
+      - transcendence_network
+
+volumes:
+  db_data:
+  prometheus_data:
+  be_media:
+
+
+networks:
+  transcendence_network:
+    driver: bridge

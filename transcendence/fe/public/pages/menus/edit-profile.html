@@ -1,0 +1,55 @@
+<div class="bs-primary d-flex justify-content-center align-items-center vh-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <button
+          id="changeUsernameButton"
+          class="btn button-text-styles button-text-size w-100"
+          data-translationKey="edit-username"
+          data-modal="edit-username"
+          hidden
+        >
+          Change Username
+        </button>
+        <input type="file" id="avatarInput" accept="image/*" hidden />
+        <button
+          id="changeAvatarButton"
+          class="btn button-text-styles button-text-size w-100"
+          data-translationKey="edit-avatar"
+        >
+          Change Avatar
+        </button>
+        <button
+          id="changePasswordButton"
+          class="btn button-text-styles button-text-size w-100"
+          data-translationKey="edit-password"
+          data-modal="edit-password"
+          hidden="True"
+        >
+          Change Password
+        </button>
+      </div>
+    </div>
+    <div
+      class="d-flex justify-content-center gap-1 position-absolute"
+      style="
+        bottom: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 30rem;
+      "
+    >
+      <button
+        id="accountDeletionButton"
+        class="account-deletion-button w-100"
+        data-translationKey="account-deletion"
+        style="border-radius: 0.4rem; height: 2.5rem"
+        type="submit"
+        data-modal="account-deletion"
+      >
+        Account Deletion
+      </button>
+    </div>
+  </div>
+</div>
